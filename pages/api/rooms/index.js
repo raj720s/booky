@@ -3,9 +3,9 @@ import {
   addNewRoomController,
   getAllRoomsctrl,
 } from "../../../controllers/roomcontrollers";
-// import errorMiddware from "../../../middlewares/ErrorMidware";
+import errorMiddleware from "../../../middlewares/ErrorMidware";
 import dbConnect from "../../../utils/dBconnect";
-const router = nc();
+const router = nc({ onError: errorMiddleware });
 dbConnect();
 
 router.get(getAllRoomsctrl);
